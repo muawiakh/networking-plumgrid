@@ -19,7 +19,7 @@ from oslo_log import log as logging
 LOG = logging.getLogger(__name__)
 
 
-class Plumlib():
+class Plumlib(object):
     """Class PLUMgrid Fake Library.
 
     This library is a by-pass implementation for the PLUMgrid Library.
@@ -33,7 +33,7 @@ class Plumlib():
     def director_conn(self, director_plumgrid, director_port, timeout,
                       director_admin, director_password):
         LOG.info(_LI('Fake Director: %s'),
-                 director_plumgrid + ':' + director_port)
+                 director_plumgrid + ':' + str(director_port))
         pass
 
     def create_network(self, tenant_id, net_db, network):
@@ -44,7 +44,7 @@ class Plumlib():
             net_db["network"][key] = network["network"][key]
         return net_db
 
-    def update_network(self, tenant_id, net_id):
+    def update_network(self, tenant_id, net_id, network):
         pass
 
     def delete_network(self, net_db, net_id):

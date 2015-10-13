@@ -1,4 +1,5 @@
-# Copyright 2013 PLUMgrid, Inc. All Rights Reserved.
+# Copyright (c) 2015 Thales Services SAS
+# All Rights Reserved.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -12,19 +13,4 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
-"""Neutron PLUMgrid Plugin exceptions"""
-
-from neutron.common import exceptions as base_exec
-
-
-class PLUMgridException(base_exec.NeutronException):
-    message = _("PLUMgrid Plugin Error: %(err_msg)s")
-
-
-class PLUMgridConnectionFailed(PLUMgridException):
-    message = _("Connection failed with PLUMgrid Director: %(err_msg)s")
-
-
-class TenantResourcesInUse(base_exec.NeutronException):
-    message = _("TenantResourcesInUse: %(err_msg)s")
+VIF_TYPE_IOVISOR = 'iovisor'
