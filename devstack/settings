@@ -7,3 +7,4 @@ PLUMGRID_ADMIN=${PLUMGRID_ADMIN:-username}
 PLUMGRID_PASSWORD=${PLUMGRID_PASSWORD:-password}
 PLUMGRID_TIMEOUT=${PLUMGRID_TIMEOUT:-70}
 PLUMGRID_DRIVER=${PLUMGRID_DRIVER:-networking_plumgrid.neutron.plugins.drivers.plumlib.Plumlib}
+PLUMGRID_DIR=${PLUMGRID_DIR:-$DEST/networking-plumgrid}

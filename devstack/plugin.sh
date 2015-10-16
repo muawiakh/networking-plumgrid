@@ -41,7 +41,6 @@ function configure_plumgrid_plugin {
     echo "Configuring Neutron for PLUMgrid"
 
     if is_service_enabled q-svc ; then
-        #Q_PLUGIN_CLASS="neutron.plugins.plumgrid.plumgrid_plugin.plumgrid_plugin.NeutronPluginPLUMgridV2"
         Q_PLUGIN_CLASS="networking_plumgrid.neutron.plugins.plugin.NeutronPluginPLUMgridV2"
         export NETWORK_API_EXTENSIONS='binding,external-net,extraroute,provider,quotas,router,security-group'
         NEUTRON_CONF=/etc/neutron/neutron.conf
@@ -71,22 +70,24 @@ function neutron_plugin_check_adv_test_requirements {
 if [[ "$1" == "stack" && "$2" == "pre-install" ]]; then
     # Set up system services
     echo_summary "Configuring system services Template"
-    configure_plumgrid_plugin
+    #configure_plumgrid_plugin
 
 elif [[ "$1" == "stack" && "$2" == "install" ]]; then
     # Perform installation of service source
     echo_summary "Installing Template"
-    configure_plumgrid_plugin 
+    cd $PLUMGRID_DIR
+    sudo python setup.py install
+    #configure_plumgrid_plugin 
 
 elif [[ "$1" == "stack" && "$2" == "post-config" ]]; then
     # Configure after the other layer 1 and 2 services have been configured
     echo_summary "Configuring Template"
-    configure_plumgrid_plugin
+    #configure_plumgrid_plugin
 
 elif [[ "$1" == "stack" && "$2" == "extra" ]]; then
     # Initialize and start the template service
     echo_summary "Initializing Template"
-    configure_plumgrid_plugin
+    #configure_plumgrid_plugin
 fi
 
 if [[ "$1" == "unstack" ]]; then
